@@ -68,7 +68,7 @@ def add_filler_words(text):
     sentences = text.split(". ")
     humanized_sentences = []
     for sentence in sentences:
-        if random.random() < 0.8:  # Adjust probability to control filler frequency
+        if random.random() < 0.95:  # Adjust probability to control filler frequency
             words = sentence.split()
             insert_pos = random.randint(0, len(words) - 1)
             words.insert(insert_pos, random.choice(filler_words))
