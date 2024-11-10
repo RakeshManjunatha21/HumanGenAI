@@ -7,14 +7,20 @@ import random
 import re
 import spacy
 
-# Initialize resources
+# Ensure nltk resources are downloaded
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('wordnet')
-nlp = spacy.load("en_core_web_sm")
-nltk.download('punkt')
 
-# Define all helper functions here
+# Attempt to load the spaCy model; download if not present
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    from spacy.cli import download
+    download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
+
+# Define helper functions
 def get_synonym(word, pos_tag):
     synsets = wn.synsets(word, pos=pos_tag)
     if synsets:
@@ -108,7 +114,6 @@ def humanize_text(input_text):
     humanized_text = use_active_voice(humanized_text)
     humanized_text = add_personal_touch(humanized_text)
 
-    # Preserve capitalization for "I"
     humanized_text = re.sub(r'\bi\b', 'I', humanized_text)
     humanized_text = re.sub(r'\band\b', lambda m: random.choice(['and', '&']), humanized_text)
 
@@ -117,8 +122,6 @@ def humanize_text(input_text):
 # Streamlit App Design
 st.set_page_config(page_title="AI to Human Text Converter", layout="wide")
 st.title("AI to Human Text Converter")
-st.markdown("""
-""")
 
 # Input and Output Section
 input_text = st.text_area("Enter AI-Generated Text", placeholder="Type or paste your text here...", height=200)
