@@ -1,8 +1,13 @@
 import streamlit as st
 import spacy
+import nltk
 from nltk.corpus import wordnet as wn
 import random
 import re
+
+# Ensure necessary resources are downloaded
+nltk.download('wordnet')
+nltk.download('omw-1.4')  # Additional resources for WordNet
 
 # Load spaCy's English model
 try:
@@ -63,7 +68,7 @@ def add_filler_words(text):
     sentences = text.split(". ")
     humanized_sentences = []
     for sentence in sentences:
-        if random.random() < 0.5:  # Adjust probability to control filler frequency
+        if random.random() < 0.8:  # Adjust probability to control filler frequency
             words = sentence.split()
             insert_pos = random.randint(0, len(words) - 1)
             words.insert(insert_pos, random.choice(filler_words))
