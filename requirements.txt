@@ -14,6 +14,9 @@ confection==0.1.5
 cymem==2.0.8
 en_core_web_lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl#sha256=293e9547a655b25499198ab15a525b05b9407a75f10255e405e8c3854329ab63
 en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl#sha256=1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85
+streamlit==1.39.0
+nltk==3.9.1
+spacy==3.8.2
 gitdb==4.0.11
 GitPython==3.1.43
 idna==3.10
@@ -29,7 +32,6 @@ MarkupSafe==3.0.2
 mdurl==0.1.2
 murmurhash==1.0.10
 narwhals==1.13.2
-nltk==3.9.1
 numpy==2.0.2
 packaging==24.1
 pandas==2.2.3
@@ -52,11 +54,9 @@ shellingham==1.5.4
 six==1.16.0
 smart-open==7.0.5
 smmap==5.0.1
-spacy==3.8.2
 spacy-legacy==3.0.12
 spacy-loggers==1.0.5
 srsly==2.4.8
-streamlit==1.39.0
 tenacity==9.0.0
 thinc==8.3.2
 toml==0.10.2
