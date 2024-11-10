@@ -104,9 +104,9 @@ def humanize_text(input_text):
     humanized_text = input_text
     humanized_text = rewrite_overused_terms(humanized_text)
     humanized_text = vary_contractions(humanized_text)
-    # humanized_text = add_filler_words(humanized_text)
+    humanized_text = add_filler_words(humanized_text)
     humanized_text = use_active_voice(humanized_text)
-    # humanized_text = add_personal_touch(humanized_text)
+    humanized_text = add_personal_touch(humanized_text)
 
     # Preserve capitalization for "I"
     humanized_text = re.sub(r'\bi\b', 'I', humanized_text)
